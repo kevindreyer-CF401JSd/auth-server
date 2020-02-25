@@ -15,8 +15,14 @@ app.get('/users', (req, res) => {
     res.status(200).json(users);
 })
 
-app.post('/signup', (req, res) => {
+app.post('/signup', async (req, res) => {
     const { username, email, password } = req.body
+    if (users.find(u => u.username === username)) {
+        res.status(403).json({ error: `Username already taken: ${username}` })
+    } else {
+        users.push({ username, email, password: await bcrypt.hash(password, 4) })
+        res.status(200).json({ message: 'success' })
+    }
 })
 
 //Server setup and startup
