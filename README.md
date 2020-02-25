@@ -13,6 +13,14 @@ Authentication: Deploy an Express server that implements Basic Authentication, w
 
 - Express server
   - with routes
+    - signup
+    - signin
+    - get all users
+    - 
   - Basic Authentication Middleware
-  
+  - read and write in mongodb
+- testing
+  - 
+
+
 
