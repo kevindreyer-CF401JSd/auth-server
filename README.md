@@ -10,3 +10,9 @@ Authentication: Deploy an Express server that implements Basic Authentication, w
 
 ### UML
 ![auth server UML](./asuml2.JPG)
+
+- Express server
+  - with routes
+  - Basic Authentication Middleware
+  
+
