@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+// const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
@@ -17,8 +17,14 @@ class Users extends Model{
         return this.db;
     }
 
-    getAll (req, res, next) {
-        
+    getAll (id) {
+        const queryObject = id ? { _id: id } : {};
+        return this.schema.find(queryObject);
+    }
+
+    create (record) {
+        const newRecord = new this.schema(record);
+        return newRecord.save();
     }
 
     generateToken (user) {
@@ -34,7 +40,8 @@ class Users extends Model{
             } else {
                 const encryptedPassword = await bcrypt.hash(password, 5)
                 this.db.push({ username, email, password: encryptedPassword })
-                return record;
+                const newRecord = new this.schema(record);
+                return newRecord.save()
             }
     }
 
