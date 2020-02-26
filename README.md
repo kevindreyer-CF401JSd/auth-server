@@ -22,7 +22,7 @@ Authentication: Deploy an Express server that implements Basic Authentication, w
 - testing
   - 
 
-`http get :3007/users`
-`http post :3007/signup username=kd email="kevindreyer@example.com" password=password`
-`http -a kd:password get :3007/protected`
-`http -a kd:password get :3007/headers`
+- `http get :3007/users`
+- `http post :3007/signup username=kd email="kevindreyer@example.com" password=password`
+- `http -a kd:password get :3007/protected`
+- `http -a kd:password get :3007/headers`

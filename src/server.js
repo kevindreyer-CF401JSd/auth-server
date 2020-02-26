@@ -1,6 +1,7 @@
 // 3rd party Resources
 require('dotenv').config();
 const express = require('express');
+const mongoose = require('mongoose')
 
 const app = express();
 
@@ -26,8 +27,18 @@ app.get('/protected', basicAuth, (req, res) => {
 })
 
 app.post('/signup', async (req, res) => {
+    // const newUser = new User(req.body)
+    // newUser.save()
+    //     .then(user => {
+    //         const token = user.generateToken()
+    //         res.status(200).json({ token })
+    //     })
     users.save(req.body)
-        .then(() => res.status(200).json({ message: 'success' }))
+        .then(user => {
+            console.log('user',user);
+            const token = users.generateToken(user)
+            res.status(200).json({ token })
+        })
         .catch(err => res.status(403).json({ error: err.message }))
 })
 
