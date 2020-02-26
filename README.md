@@ -4,6 +4,16 @@ Authentication: Deploy an Express server that implements Basic Authentication, w
 - [class 11 lab readme](https://github.com/codefellows/seattle-javascript-401d34/blob/master/class-11/lab/README.md)
 - [in class demo](https://github.com/codefellows/seattle-javascript-401d34/tree/master/class-12/in-class-demo)
 
+- Lab checklist
+  - [x] Routes for Get
+  - [x] Routes for Post
+  - [ ] Connect to MongoDB
+  - [x] Hash plain text password
+  - [ ] Method to authenticate a user using the hashed password
+  - [x] Method to generate a Token following a valid login
+  - [ ] Tests
+
+
 ### resources
 - [JWT](https://jwt.io/introduction/)
 - [mongoosejs docs methods statics](https://mongoosejs.com/docs/2.7.x/docs/methods-statics.html)
@@ -26,3 +36,6 @@ Authentication: Deploy an Express server that implements Basic Authentication, w
 - `http post :3007/signup username=kd email="kevindreyer@example.com" password=password`
 - `http -a kd:password get :3007/protected`
 - `http -a kd:password get :3007/headers`
+
+
+-[PR](https://github.com/kevindreyer-CF401JSd/auth-server/pull/1)
