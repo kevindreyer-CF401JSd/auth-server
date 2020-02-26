@@ -14,4 +14,4 @@ usersSchema.methods.generateToken = () => {
 usersSchema.static.authenticateBasic = (username, password) => {
     //do findOne query with mongoose to get the right user
 }
-module.exports = mongoose.model('User', userSchema);
+module.exports = mongoose.model('User', usersSchema);

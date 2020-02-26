@@ -3,14 +3,22 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
 
-class Users {
+const Model = require('./mongo-model');
+const schema = require('./users-schema');
+
+class Users extends Model{
     constructor () {
+        super(schema)
         this.db = [];
-        this.SECRET = "testtesttest"
+        this.SECRET = process.env.SECRET
     }
 
     list () {
         return this.db;
+    }
+
+    getAll (req, res, next) {
+        
     }
 
     generateToken (user) {
@@ -36,11 +44,11 @@ class Users {
             return Promise.reject(new Error('user does not exist'))
         } else {
             const valid = await bcrypt.compare(password, user.password)
-                if (valid) {
-                    return user
-                } else {
-                    return Promise.reject(new Error('wrong password'))
-                }
+            if (valid) {
+                return user
+            } else {
+                return Promise.reject(new Error('wrong password'))
+            }
         }
     }
 }
