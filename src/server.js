@@ -6,12 +6,23 @@ const app = express();
 
 // App level middleware
 app.use(express.json());
+const basicAuth = require('./middleware/auth/basic-auth')
 
 const users = require('./models/users');
 
 // Routes
 app.get('/users', (req, res) => {
     res.status(200).json(users.list());
+})
+
+// Get headers
+app.get('/headers', (req, res) => {
+    res.status(200).send(req.headers)
+})
+
+// Get protected
+app.get('/protected', basicAuth, (req, res) => {
+    res.status(200).json({ message: 'congratulations' })
 })
 
 app.post('/signup', async (req, res) => {
