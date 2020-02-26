@@ -50,8 +50,9 @@ module.exports = {
     start: function (port) {
         if (!isRunning) {
             isRunning = true;
-            app.listen(port);
-            console.log(`Listening on port ${port}...`);
+            app.listen(port, () => {
+            console.log(`Listening on port ${port}...`)
+            })
         } else {
             console.error('Server is already running!');
         }
