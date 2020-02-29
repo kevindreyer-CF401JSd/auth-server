@@ -1,0 +1,35 @@
+{
+  "name": "auth-server",
+  "version": "1.0.0",
+  "description": "Authentication: Deploy an Express server that implements Basic Authentication, with signup and signin capabilities, using a Mongo database for storage.",
+  "main": "app.js",
+  "scripts": {
+    "test": "jest",
+    "test-watch": "jest --watchAll --coverage",
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kevindreyer-CF401JSd/auth-server.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kevindreyer-CF401JSd/auth-server/issues"
+  },
+  "homepage": "https://github.com/kevindreyer-CF401JSd/auth-server#readme",
+  "dependencies": {
+    "base-64": "^0.1.0",
+    "bcrypt": "^4.0.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "jest": "^25.1.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.9.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  }
+}
